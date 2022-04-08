@@ -9,35 +9,35 @@ use Grav\Common\Plugin;
  * @package Grav\Plugin
  */
 class OgrePlugin extends Plugin {
-    public static function getSubscribedEvents(): array {
-        return [
-            'onPluginsInitialized' => [
-                ['onPluginsInitialized', 0],
-            ]
-        ];
-    }
+	public static function getSubscribedEvents(): array {
+		return [
+			'onPluginsInitialized' => [
+				['onPluginsInitialized', 0],
+			]
+		];
+	}
 
-    /**
-     * Composer autoload
-     *
-     * @return ClassLoader
-     */
-    public function autoload(): ClassLoader {
-        return require __DIR__ . '/vendor/autoload.php';
-    }
+	/**
+	 * Composer autoload
+	 *
+	 * @return ClassLoader
+	 */
+	public function autoload(): ClassLoader {
+		return require __DIR__ . '/vendor/autoload.php';
+	}
 
-    /**
-     * Initialize the plugin
-     */
-    public function onPluginsInitialized(): void {
-        // Don't proceed if we are in the admin plugin
-        if ($this->isAdmin()) {
-            return;
-        }
+	/**
+	 * Initialize the plugin
+	 */
+	public function onPluginsInitialized(): void {
+		// Don't proceed if we are in the admin plugin
+		if ($this->isAdmin()) {
+			return;
+		}
 
-        // Enable the main events we are interested in
-        $this->enable([
-            // Put your main events here
-        ]);
-    }
+		// Enable the main events we are interested in
+		$this->enable([
+			// Put your main events here
+		]);
+	}
 }
