@@ -4,6 +4,8 @@ namespace Grav\Plugin;
 use Composer\Autoload\ClassLoader;
 use Grav\Common\Plugin;
 
+use Grav\Common\Grav;
+
 /**
  * Class OgrePlugin
  * @package Grav\Plugin
@@ -40,14 +42,20 @@ class OgrePlugin extends Plugin {
 		// Enable the main events we are interested in
 		$this->enable([
 			'onTwigTemplatePaths' => ['addTwigTemplatePaths', 0],
+			'onTwigLoader' => ['addSystemTwigNamespace', 10],
 		]);
+	}
+
+	// add Grav system templates as namespace to twig - would love to know if they are available a better way!
+	public function addSystemTwigNamespace() {
+		$system = $this->grav['locator']->findResource('system://templates');
+		$this->grav['twig']->addPath($system . DIRECTORY_SEPARATOR, 'system');
 	}
 
 	/**
 	* Add current directory to twig lookup paths.
 	*/
-	public function addTwigTemplatePaths()
-	{
+	public function addTwigTemplatePaths() {
 		$this->grav['twig']->twig_paths[] = __DIR__ . '/templates';
 	}
 

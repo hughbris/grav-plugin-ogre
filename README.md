@@ -46,6 +46,12 @@ Note that if you use the Admin Plugin, a file with your configuration named ogre
 
 **Describe how to use the plugin.**
 
+### Dangerous interactions
+
+Does this plugin play well with other social/metadata plugins?
+
+I don't know, I haven't needed to know. This is pragmatic right now. I'd [love to hear](https://github.com/hughbris/grav-plugin-ogre/issues) of any nasty interactions with other plugins and themes. They might bite me in future!
+
 ## Credits
 
 **Did you incorporate third-party code? Want to thank somebody?**
