@@ -37,7 +37,16 @@ class OgrePlugin extends Plugin {
 
 		// Enable the main events we are interested in
 		$this->enable([
-			// Put your main events here
+			'onTwigTemplatePaths' => ['addTwigTemplatePaths', 0],
 		]);
 	}
+
+	/**
+	* Add current directory to twig lookup paths.
+	*/
+	public function addTwigTemplatePaths()
+	{
+		$this->grav['twig']->twig_paths[] = __DIR__ . '/templates';
+	}
+
 }
