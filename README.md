@@ -44,11 +44,40 @@ Note that if you use the Admin Plugin, a file with your configuration named ogre
 
 ## Usage
 
-**Describe how to use the plugin.**
+I might have to learn and draw one of those [Mermaid diagrams](https://mermaidjs.github.io/) to make the system of template precedence here much clearer. For now, choose your adventure …
 
-### Dangerous interactions
+### Hands free mode
 
-Does this plugin play well with other social/metadata plugins?
+Enable the plugin and watch the AI/ML of this plugin work its magic ;) OK it's pretty transparent, you'll end up with inferred opengraph metadata like what you see in [`partials/opengraph-metadata.html.twig` here](https://github.com/hughbris/grav-plugin-ogre/blob/develop/templates/partials/opengraph-metadata.html.twig).
+
+(Future versions should allow for overriding this smart og metadata via frontmatter, but not yet.)
+
+**If you're using a theme that defines its own metadata partial** (overriding [`partials/metadata.htmltwig` in Grav core]((https://github.com/getgrav/grav/blob/develop/system/templates/partials/metadata.html.twig))), this plugin won't get a look in.
+
+You can adaptively merge this plugin's [metadata template](https://github.com/hughbris/grav-plugin-ogre/blob/develop/templates/partials/metadata.html.twig) into your theme's metadata template to enjoy its benefits, but then we are no longer hands free. It's OK, you're a coder.
+
+### Hands free with mild anxiety mode
+
+Add extra opengraph metadata elements by enabling this plugin and adding a new custom template with your new elements at `partials/custom-opengraph-metdata.html.twig` into your theme's templates folder. This plugin will pick that up as long as your theme doesn't override the [`partials/metadata.html.twig` file provided by Grav core](https://github.com/getgrav/grav/blob/develop/system/templates/partials/metadata.html.twig). Seek help under "[Hands free mode](#hands-free-mode)" above if this is your fate.
+
+### Control freak mode
+
+The metadata template provided by this plugin will override [the one provided by the Grav system](https://github.com/getgrav/grav/blob/develop/system/templates/partials/metadata.html.twig) when this plugin is enabled.
+
+You can create your own in your theme at `partials/metadata.html.twig` and this plugin will begin to feel very neglected. It will just be chewing cycles.
+
+You can copy the template provided by this theme and incorporate any of:
+
+* the system template,
+* the plugin's opengraph template,
+* your own version of the plugin's opengraph template,
+* a custom opengraph template you put in your theme.
+
+Let's get a diagram on this. Explaining is hard. I thought it would help future me.
+
+### Adverse reactions
+
+_Does this plugin play well with other social/metadata plugins?_
 
 I don't know, I haven't needed to know. This is pragmatic right now. I'd [love to hear](https://github.com/hughbris/grav-plugin-ogre/issues) of any nasty interactions with other plugins and themes. They might bite me in future!
 
