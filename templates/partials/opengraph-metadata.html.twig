@@ -1,4 +1,6 @@
 {{ dump("I am the plugin's partials/opengraph-metadata.html.twig template") }}
 {{ include('partials/custom-opengraph-metadata.html.twig', ignore_missing = true) }}
 
-<meta name="og:url" property="og:url" content="{{ page.url(true) }}" />  {# Two notes: don't worry what the FB validator says, the name attribute is pukka; do we really need to spoonfeed this and any of the plethora of existing semantically equivalent standard tags aren't enough to work it out, Facebook (you numpties)? No, we must show obeisance to your importance. Be liberal in what you accept! #}
+{# don't worry what the FB validator says, the name attribute is pukka #}
+<meta name="og:url" property="og:url" content="{{ page.url(true) }}" /> {# do we really need to spoonfeed this and any of the plethora of existing semantically equivalent standard tags aren't enough to work it out, Facebook (you numpties)? No, we must show obeisance to your importance. Be liberal in what you accept! #}
+<meta name="og:title" property="og:title" content="{{ page.metadata.title.content|default(page.title) }}" /> {# so you could set this to something tailored by adding 'title' to page.metadata before the page's metadata is invoked #}
