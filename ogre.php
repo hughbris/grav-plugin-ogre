@@ -19,6 +19,7 @@ class OgrePlugin extends Plugin {
 		];
 	}
 
+	/* Vendors? These people are nothing to me. */
 	/**
 	 * Composer autoload
 	 *
@@ -41,7 +42,7 @@ class OgrePlugin extends Plugin {
 
 		// Enable the main events we are interested in
 		$this->enable([
-			'onTwigTemplatePaths' => ['addTwigTemplatePaths', 0],
+			'onTwigTemplatePaths' => ['addTwigTemplatePaths', 0], # I guess I could mess with this rank/score parameter to gain greater control
 			'onTwigLoader' => ['addSystemTwigNamespace', 10],
 		]);
 	}
