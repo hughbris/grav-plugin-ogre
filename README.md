@@ -41,7 +41,7 @@ Here is the default configuration and an explanation of available options:
 ```yaml
 enabled: true
 brave: # bravely infer these elements using sixth sense™ capability in the plugin
-    - 'og:image' # this will grab the page's first image media object when it exists
+    - 'og:image' # this will grab the page's first image media object when it exists, note that this value infers some 'og:image:*' subtypes FWIW
 ```
 
 ## Usage
