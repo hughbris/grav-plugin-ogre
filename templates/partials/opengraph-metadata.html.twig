@@ -5,3 +5,10 @@
 <meta name="og:url" property="og:url" content="{{ page.url(true) }}" /> {# do we really need to spoonfeed this and any of the plethora of existing semantically equivalent standard tags aren't enough to work it out, Facebook (you numpties)? No, we must show obeisance to your importance. Be liberal in what you accept! #}
 <meta name="og:title" property="og:title" content="{{ page.title }}" />
 <meta name="og:description" property="og:description" content="{{ page.metadata.description.content }}" />
+{# I'm not going to include og:type because it is implied 'website' if not specified; page templates that suit other values can add custom og metadata through partials/custom-opengraph-metadata.html.twig #}
+
+{% if 'og:image' in config.plugins.ogre.brave|default([]) %}
+	{% if page.media.images|first %} {# also check here for a nominated image from page frontmatter #}
+		<meta name="og:image" property="og:image" content="{{ base_url_absolute }}{{ (page.media.images|first).url }}" /> {# it's unfortunate the .url method of media does not take an argument to include the hostname, that's why we need the first expression #}
+	{% endif %}
+{% endif %}

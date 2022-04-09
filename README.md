@@ -34,13 +34,15 @@ If you use the Admin Plugin, you can install the plugin directly by browsing the
 
 Before configuring this plugin, you should copy the `user/plugins/ogre/ogre.yaml` to `user/config/plugins/ogre.yaml` and only edit that copy.
 
+Note that if you use the Admin Plugin, a file with your configuration named ogre.yaml will be saved in the `user/config/plugins/`-folder once the configuration is saved in the Admin.
+
 Here is the default configuration and an explanation of available options:
 
 ```yaml
 enabled: true
+brave: # bravely infer these elements using sixth sense™ capability in the plugin
+    - 'og:image' # this will grab the page's first image media object when it exists
 ```
-
-Note that if you use the Admin Plugin, a file with your configuration named ogre.yaml will be saved in the `user/config/plugins/`-folder once the configuration is saved in the Admin.
 
 ## Usage
 
