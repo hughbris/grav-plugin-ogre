@@ -2,8 +2,8 @@
 
 {# don't worry what the FB validator says, the name attribute is pukka #}
 <meta name="og:url" property="og:url" content="{{ page.url(true) }}" /> {# do we really need to spoonfeed this and any of the plethora of existing semantically equivalent standard tags aren't enough to work it out, Facebook (you numpties)? No, we must show obeisance to your importance. Be liberal in what you accept! #}
-<meta name="og:title" property="og:title" content="{{ page.title }}" />
-<meta name="og:description" property="og:description" content="{{ page.metadata.description.content }}" />
+<meta name="og:title" property="og:title" content="{{ page.title|raw }}" />
+<meta name="og:description" property="og:description" content="{{ page.metadata.description.content|raw }}" />
 {# I'm not going to include og:type because it is implied 'website' if not specified; page templates that suit other values can add custom og metadata through partials/custom-opengraph-metadata.html.twig #}
 
 {% if 'og:image' in config.plugins.ogre.brave|default([]) %}
