@@ -89,5 +89,4 @@ I don't know, I haven't needed to know. This is pragmatic right now. I'd [love t
 
 ## To Do
 
-- [ ] Future plans, if any
-
+- [ ] Overrides via page frontmatter
