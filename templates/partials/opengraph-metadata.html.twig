@@ -10,9 +10,10 @@
 	{% set first_image = page.media.images|first %}
 	{% if first_image %} {# TODO: also check here for a nominated image from page frontmatter #}
 		<meta name="og:image" property="og:image" content="{{ base_url_absolute }}{{ first_image.cropzoom(1200,630).url }}" /> {# it's unfortunate the .url method of media does not take an argument to include the hostname, that's why we need the first expression #}
+		{# we are going to interpret this as a wildcard (i.e. og:image:*) #}
+		<meta name="og:image:height" property="og:image:height" content="{{ first_image.height }}" />
+		<meta name="og:image:width" property="og:image:width" content="{{ first_image.width }}" />
+		<meta name="og:image:type" property="og:image:type" content="{{ first_image.mime }}" />
+		<meta name="og:image:alt" property="og:image:alt" content="{{ first_image.meta.alt|default('') }}" />
 	{% endif %}
-	{# we are going to interpret this as a wildcard (i.e. og:image:*) #}
-	<meta name="og:image:height" property="og:image:height" content="{{ first_image.height }}" />
-	<meta name="og:image:width" property="og:image:width" content="{{ first_image.width }}" />
-	<meta name="og:image:type" property="og:image:type" content="{{ first_image.mime }}" />
 {% endif %}
